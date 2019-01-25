@@ -1,0 +1,30 @@
+/* pages/updateprove/updateprove.wxss */
+.img{
+  height: 350rpx;
+  border-radius:12rpx;
+}
+.ctc_border{
+  border:1rpx solid #CFCECF;
+  border-radius:12rpx
+}
+.btn{
+  color: white;
+  background: #4C556E;
+  position: fixed;
+  bottom:0rpx;
+  width: 100%;
+}
+.hover_btn{
+  color: white;
+  background: rgb(128, 140, 173);
+}
+.I_bottom{
+  position: fixed;
+  bottom: 0;
+  width: 99%;
+}
+.bottom{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

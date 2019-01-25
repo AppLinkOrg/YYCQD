@@ -1,0 +1,96 @@
+/* pages/reedit/reedit.wxss */
+Page{
+  padding-bottom: 40rpx;
+}
+.icon{
+  width: 50rpx;
+  height: 40rpx;
+}
+.column{
+  align-content: center;
+  flex-direction:column;
+}
+.icon_lower{
+width: 30rpx;
+height: 25rpx;
+}
+/* .txt-white{
+  color: white;
+  border-bottom: 4rpx  solid white;
+  border-bottom-width: thick;
+} */
+.goto_icon{
+  width: 190rpx;
+  height: 20rpx;
+}
+/* .signup{
+width:170rpx;
+height:50rpx;
+line-height:50rpx;
+border:4rpx solid red;
+border-radius:50rpx;
+} */
+.mid{
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  box-shadow:1rpx 2rpx 25rpx 2rpx rgb(173, 173, 173);
+  /* border-radius: 10rpx; */
+}
+
+.line{
+background: #CFCECF;
+}
+.font-left{
+  font-size: 100rpx;
+  font-weight:bold;
+  color: #26C48B;
+  
+}
+.font-mid{
+  font-size: 60rpx;
+  font-weight:bold;
+  color: #8A8A8A;
+  
+}
+.font-right{
+  font-size: 100rpx;
+  font-weight:bold;
+  color: #486AB7;
+  
+}
+.font-bottom{
+  font-size: 40rpx;
+  font-weight: bold;
+  color: rgb(177, 174, 174);
+  
+}
+.bor_btm{
+  border-bottom:1rpx solid #CFCECF;
+}
+.cancel_btn{
+  margin-top:50rpx;
+  height:100rpx; 
+  line-height: 100rpx;
+}
+
+checkbox .wx-checkbox-input {
+  width: 30rpx;
+  height: 30rpx;
+
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: rgb(163, 205, 245);
+  
+}
+.icon-top{
+  width: 710rpx;
+  height: 200rpx;
+}
+
+/* .hover_cancel_btn{
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  bottom: 0;
+  
+} */

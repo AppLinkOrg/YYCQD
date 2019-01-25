@@ -1,0 +1,46 @@
+<view class="flex-wrap flex-center">
+  <form bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
+    <view class="flex-wrap flex-center">
+      <view class="margin-30" style='margin:30rpx;color:#BBBBBB '>车重(吨)</view>
+      <view class="flex-row flex-center" style='justify-content:center'>
+
+        <input placeholder="0" bindinput='carnumber' name="carnumber" style='border:1px solid #D5D5D5; height:90rpx; width:95%;'></input>
+
+      </view>
+
+    </view>
+
+    <view>
+      <view class="margin-30" style='margin:30rpx;color:#BBBBBB '>净重(吨)</view>
+      <view class="flex-row flex-center" style='justify-content:center'>
+        <input placeholder="0" bindinput='vehicletype' name="vehicletype" style='border:1px solid #D5D5D5; height:90rpx; width:95%;'></input>
+      </view>
+    </view>
+
+    <view>
+      <view class="margin-30" style='margin:30rpx;color:#BBBBBB '>总重(吨)</view>
+      <view class="flex-row flex-center" style='justify-content:center'>
+        <input placeholder="0" bindinput='load' name="load" style='border:1px solid #D5D5D5; height:90rpx; width:95%;'></input>
+      </view>
+    </view>
+    <view>
+
+      <view class="margin-30" style='margin:30rpx;color:#BBBBBB '>上传过磅单</view>
+
+
+      <view class=' margin-top-20 ctc_border padding-10' bindtap='uploadimg'>
+
+        <view class='img flex-row flex-column padding-top-100' style='line-height' wx:if='{{photo==undefined}}'>
+          <image class='icon-100 ' src='{{uploadpath}}resource/{{res.addrz_icon}}'></image>
+        </view>
+
+        <image wx:if='{{photo!=undefined}}' class='photo img' mode='aspectFit' src='{{uploadpath}}weighing/{{photo}}'></image>
+
+        <input hidden='true' name="photo" value="{{photo}}"></input>
+
+      </view>
+
+    </view>
+    <button form-type='submit' class="h4 txt-white bm" id="anniu" type='bak_ble'>确定</button>
+  </form>
+</view>

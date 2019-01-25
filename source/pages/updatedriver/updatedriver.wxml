@@ -1,0 +1,36 @@
+<!--pages/updatedriver/updatedriver.wxml-->
+<form bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
+  <view  >
+    <view class="flex-row  column">
+      <view class='flex-row column padding-40'>
+        <view class="margin-left-10">姓名</view>
+        <input class='padding-20 margin-top-20 ctc_border' name='name' bindinput='name'  style='border:1rpx solid #CECFCE' placeholder='请重新输入姓名'></input>
+      </view>
+      <view class='flex-row column padding-40'>
+        <view class="margin-left-10">身份证号</view>
+        <input class='padding-20 margin-top-20 ctc_border' name='idcard'  bindinput='idcard' type='idcard' style='border:1rpx solid #CECFCE' placeholder='请重新输入身份证号'></input>
+      </view>
+    </view>
+    <view class='flex-row column padding-40'>
+      <view class="margin-left-10">驾驶证照片</view>
+      <view class='margin-top-20  padding-10 text-center' bindtap='uploadimg' style='border:1rpx solid #CECFCE;border-radius:10rpx'>
+        <!-- <view class='text-center img padding-top-100' style='line-height' wx:if='{{photo==undefined}}'>
+          <image class='icon-100 ' src='{{uploadpath}}driver/{{driverinfo.dirlicense_img}}'></image>
+        </view> -->
+        <image wx:if='{{photo==undefined}}' class='photo icon-100' mode='aspectFit' src='{{uploadpath}}resource/{{res.addrz_icon}}'></image>
+        <image wx:if='{{photo!=undefined}}' class='photo' mode='aspectFit' src='{{uploadpath}}driver/{{photo}}'></image>
+        <input hidden='true' name="photo" value="{{photo}}"></input>
+      </view>
+      <view class="margin-left-10 margin-top-60">身份证照片</view>
+      <view class=' margin-top-20 padding-10 text-center' bindtap='iduploadimg' style='border:1rpx solid #CECFCE;border-radius:10rpx'>
+        <!-- <view class='text-center img padding-top-100' style='line-height' wx:if='{{idphoto==undefined}}'>
+          <image class='icon-100 ' src='{{uploadpath}}driver/{{driverinfo.idcard_img}}'></image>
+        </view> -->
+        <image wx:if='{{idphoto==undefined}}' class='photo icon-100' mode='aspectFit' src='{{uploadpath}}resource/{{res.addrz_icon}}'></image>
+        <image wx:if='{{idphoto!=undefined}}' class='photo' mode='aspectFit' src='{{uploadpath}}driver/{{idphoto}}'></image>
+        <input hidden='true' name="idphoto" value="{{idphoto}}"></input>
+      </view>
+    </view>
+    <button form-type='submit' class="h4 txt-white" type='bak_ble' style='margin-top:20rpx;border-radius:0'>重新审核</button>
+  </view>
+</form>

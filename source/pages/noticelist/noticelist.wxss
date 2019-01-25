@@ -1,0 +1,4 @@
+/* pages/noticelist/noticelist.wxss */
+Page{
+  background: #E5E5E5;
+}

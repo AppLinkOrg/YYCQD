@@ -1,0 +1,6 @@
+<!--pages/noticelist/noticelist.wxml-->
+<navigator url='/pages/noticeinfo/noticeinfo?id={{item.id}}' wx:for='{{messagelist}}' wx:key='k' class='padding-40 bg-white margin-bottom-10'>
+<view class='txt-black txt-bold'>{{item.mess_title}}</view>
+<view class='txt-gray h6 margin-top-10'>{{item.created_date}}</view>
+<view class='h5 margin-top-10'>内容：{{item.mess_content}}</view>
+</navigator>

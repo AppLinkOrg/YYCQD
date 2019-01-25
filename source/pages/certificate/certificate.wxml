@@ -1,0 +1,70 @@
+<view class='padding-20'>
+  <view class='h4 txt-primary txt-bold txt-center' wx:if='{{driverinfo.status=="I"}}'>您的认证申请已提交，请耐心等待审核！</view>
+</view>
+
+<view wx:if='{{driverinfo.status=="S"}}' class=''>
+  <view class='h4 txt-red txt-bold txt-center padding-20'>您的认证未通过审核，请仔细核对资料并重新提交申请！</view>
+  <view class='bottom padding-30 txt-white bg-bck_ble text-center' bindtap='againalter'>重新认证</view>
+  <!-- <view class='I_bottom padding-30 txt-white bg-bck_ble text-center' bindtap='Yes'>确定</view> -->
+</view>
+
+<form bindsubmit="confirm" bindreset="formReset" report-submit="true">
+  <view wx:if='{{driverinfo.status==null}}'>
+    <view class="flex-row  column">
+      <view class='flex-row column padding-40'>
+        <view class="margin-left-10">姓名</view>
+        <input class='padding-20 margin-top-20 ctc_border' name='name' bindinput='name' style='border:1rpx solid #CECFCE' placeholder='请输入姓名'></input>
+      </view>
+      <view class='flex-row column padding-40'>
+        <view class="margin-left-10">身份证号</view>
+        <input class='padding-20 margin-top-20 ctc_border' name='idcard' bindinput='idcard' type='idcard' style='border:1rpx solid #CECFCE' placeholder='请输入身份证号'></input>
+      </view>
+    </view>
+    <view class='flex-row column padding-40'>
+      <view class="margin-left-10">驾驶证照片</view>
+      <view class='margin-top-20  padding-10' bindtap='uploadimg' style='border:1rpx solid #CECFCE;border-radius:10rpx'>
+        <view class='text-center img padding-top-100' style='line-height' wx:if='{{photo==undefined}}'>
+          <image class='icon-100 ' src='{{uploadpath}}resource/{{res.addrz_icon}}'></image>
+        </view>
+        <image wx:if='{{photo!=undefined}}' class='photo' mode='aspectFit' src='{{uploadpath}}driver/{{photo}}'></image>
+        <input hidden='true' name="photo" value="{{photo}}"></input>
+      </view>
+      <view class="margin-left-10 margin-top-60">身份证照片</view>
+      <view class=' margin-top-20 padding-10' bindtap='iduploadimg' style='border:1rpx solid #CECFCE;border-radius:10rpx'>
+        <view class='text-center img padding-top-100' style='line-height' wx:if='{{idphoto==undefined}}'>
+          <image class='icon-100 ' src='{{uploadpath}}resource/{{res.addrz_icon}}'></image>
+        </view>
+        <image wx:if='{{idphoto!=undefined}}' class='photo' mode='aspectFit' src='{{uploadpath}}driver/{{idphoto}}'></image>
+        <input hidden='true' name="idphoto" value="{{idphoto}}"></input>
+      </view>
+    </view>
+    <button form-type='submit' class="h4 txt-white" type='bak_ble' style='margin-top:20rpx;border-radius:0'>确定</button>
+  </view>
+</form>
+
+
+
+<view wx:if='{{driverinfo.status=="A"}}'>
+  <view class="flex-row  column">
+    <view class='flex-row column padding-40'>
+      <view class="margin-left-10">姓名</view>
+      <input class='padding-20 margin-top-20 ctc_border' disabled='false' style='border:1rpx solid #CECFCE' placeholder='请输入姓名' value="{{driverinfo.name}}"></input>
+    </view>
+    <view class='flex-row column padding-40'>
+      <view class="margin-left-10">身份证号</view>
+      <input class='padding-20 margin-top-20 ctc_border' disabled='false' name='idcard' bindinput='idcard' type='idcard' style='border:1rpx solid #CECFCE' placeholder='请输入身份证号' value="{{driverinfo.idcard}}"></input>
+    </view>
+  </view>
+  <view class='flex-row column padding-40'>
+    <view class="margin-left-10">驾驶证照片</view>
+    <view class='margin-top-20  padding-10' style='border:1rpx solid #CECFCE;border-radius:10rpx'>
+      <image class='photo' src='{{uploadpath}}driver/{{driverinfo.dirlicense_img}}'></image>
+    </view>
+    <view class="margin-left-10 margin-top-60">身份证照片</view>
+    <view class=' margin-top-20 padding-10' style='border:1rpx solid #CECFCE;border-radius:10rpx'>
+      <image class='photo' mode='aspectFit' src='{{uploadpath}}driver/{{driverinfo.idcard_img}}'></image>
+    </view>
+  </view>
+
+  <view class='bottom padding-30 txt-white bg-bck_ble text-center' bindtap='againalter'>重新认证</view>
+</view>

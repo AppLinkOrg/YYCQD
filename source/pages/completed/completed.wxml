@@ -1,0 +1,77 @@
+<view wx:if='{{applylist.length==0}}' class='flex-row flex-column'>
+  <image class='null_icon padding-40 ' src='{{uploadpath}}resource/{{res.nocontent_icon}}'></image>
+  <view class=''>暂无历史任务</view>
+</view>
+
+<view wx:if='{{applylist.length>0}}'>
+
+  <navigator url='/pages/driverhistory/driverhistory?id={{item.id}}' wx:for='{{applylist}}' wx:key='k' class="nr1  flex-center flex-wrap margin-top-20" wx:if='{{item.orderstus=="B"||item.transport=="L"}}'>
+    <view class="asd flex-1  " style='width:95%'>
+
+      <view class="flex-center flex-row margin-top-20">
+
+        <view class="margin-left-20  ">
+          <image class='icon-15 ' src='{{uploadpath}}resource/{{res.gonsi}}'></image>
+        </view>
+
+        <view class="margin-left-20 h4 flex-1 " style='color:#222222'>{{item.member_name}}</view>
+      </view>
+
+      <view class="margin-left-20 margin-top-10" style=' '>运输单编号:{{item.order_orderno}}</view>
+      <view class="margin-left-20 margin-top-10" style=' '>报名单编号:{{item.applyno}}</view>
+
+
+
+
+      <view class=' flex-center margin-top-20  flex-row '>
+        <view class="flex-1 flex-row flex-bottom" style='justify-content:center'>
+          <view class=" " style='font-size:98rpx !important; color:#4B69BB'>{{item.order_unitprice}}</view>
+          <view class="">元/吨</view>
+        </view>
+
+        <view class="flex-1  flex-row flex-bottom  flex-center " style='text-algin:center;justify-content:center'>
+          <view class='margin-left-30' style='font-size:98rpx !important; color:#F9B725;'>{{item.tonnage}} </view>
+          <view>吨</view>
+        </view>
+      </view>
+      
+      <view class=' flex-center  margin-top-20    flex-row ' style='width:100%;  margin-bottom:30rpx;'>
+        <view class="flex-1 h4-5 flex-row  " style='justify-content:center'>运输单价</view>
+        <view class="flex-1  flex-row  h4-5" style='justify-content:center;'>运输吨数</view>
+
+      </view>
+
+
+    </view>
+    <view class="asd flex-1" style='width:95%'>
+
+    </view>
+    <view class="asd flex-1" style=' width:95%'>
+      <view class="flex-wrap" style=' margin-bottom:30rpx'>
+        <view class="flex-row margin-top:10">
+          <view class="margin-left-20  " id="z1" style='margin-top:15rpx'></view>
+          <view class="margin-left-20">{{item.order_start_company}}</view>
+        </view>
+
+        <view class="flex-row">
+          <view class="margin-left-20 " id="z2" style='margin-top:30rpx'></view>
+          <view class="margin-left-20 margin-top-10">{{item.order_end_company}}</view>
+        </view>
+        <view class="margin-left-30 h5 margin-top-10 txt-gray" style=' margin-left:60rpx'>总里程{{item.order_distance}}</view>
+      </view>
+
+    </view>
+    <view class="asd flex-1" style='width:95%'>
+      <view class="flex-row margin-top-20 " style=' margin-bottom:30rpx'>
+        <view class="margin-left-20">
+          <image class='icon-17' src='{{uploadpath}}resource/{{res.cargotype}}'></image>
+        </view>
+        <view class="flex-1 margin-left-20">货运类型</view>
+        <view class="margin-right-20">{{item.order_stuff_type_id}}</view>
+      </view>
+    </view>
+    <view class='h5 padding-20 text-center txt-white' wx:if='{{item.orderstus=="B"}}' style='background:#F25C5B;width:90%'>
+    已取消运输单
+    </view>
+  </navigator>
+</view>

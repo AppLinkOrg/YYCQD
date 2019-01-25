@@ -1,0 +1,18 @@
+<!--pages/addmembers/addmembers.wxml-->
+<form bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
+<view class='flex-row flex-column padding-20'>
+<view class='txt-black h4'>成员姓名</view>
+<view class='margin-top-20 padding-10'  style='border:1rpx solid #CFCECF;border-radius:7rpx;width:70%'><input name='addname' bindinput='bindaddname' class='h5 txt-black text-center' placeholder='请输入成员姓名'></input></view>
+</view>
+
+<view class='flex-row flex-column padding-20'>
+<view class='txt-black h4'>联系电话</view>
+<view class='margin-top-20 padding-10'  style='border:1rpx solid #CFCECF;border-radius:7rpx;width:70%'><input name='addmobile' maxlength='11' type='number' bindinput='bindaddmobile' class='h5 txt-black text-center' placeholder='请输入成员电话'></input></view>
+</view>
+
+<view class='margin-top under'>
+<button  hover-class='hover_btn' class='btn' form-type='submit' style='border-radius:0'>添加</button>
+</view>
+</form>
+
+

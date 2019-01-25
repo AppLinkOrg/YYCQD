@@ -1,0 +1,38 @@
+<!--pages/updatecar/updatecar.wxml-->
+<view class='padding-40'>
+ <form bindsubmit="update" bindreset="formReset" report-submit="{{true}}" >
+
+  <view class="flex-row column">
+    <view>车牌号码</view>
+    <view class="flex-row flex-center margin-top-20">
+      <input class='padding-20 txt-black' placeholder="请输入车牌号码" disabled='false' value='{{info.carnumber}}'  name="carnum" style='border:1px solid #CECFCE;width:95%'></input>
+    </view>
+  </view>
+
+  <view class='margin-top'>
+    <view>车辆类型</view>
+    <view class="flex-row column margin-top-20">
+      <input class='padding-20' placeholder="请选择车辆类型"   name="cartype" style='border:1px solid #CECFCE;'></input>
+    </view>
+  </view>
+
+  <view class='margin-top'>
+    <view>载重 (吨)</view>
+    <view class="flex-row column margin-top-20">
+      <input class='padding-20' placeholder="请填写该车辆的核定载重"   name="carload" style='border:1px solid #CECFCE;'></input>
+    </view>
+  </view>
+
+  <view class='flex-row column margin-top'>
+    <view>行驶证</view>
+    <view class=' margin-top-20  padding-10' bindtap='uploadimg' style='border:1rpx solid #CECFCE;border-radius:10rpx'>
+       <view class='img flex-row flex-column padding-top-100' style='line-height' wx:if='{{photo==undefined}}'>
+          <image class='icon-100 '  src='{{uploadpath}}resource/{{res.addrz_icon}}'></image>
+        </view> 
+      <image wx:if='{{photo!=undefined}}' class='photo img' mode='aspectFit' src='{{uploadpath}}vehicle/{{photo}}'></image>
+      <input hidden='true' name="carphoto" value="{{photo}}"></input>
+    </view>
+  </view>
+  <button form-type='submit' class="h4 txt-white" type='bak_ble' style='margin-top:20rpx;border-radius:0'>重新审核</button>
+ </form>
+</view>

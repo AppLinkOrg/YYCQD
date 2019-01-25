@@ -1,0 +1,34 @@
+<!--pages/team/team.wxml-->
+
+<view wx:if='{{memberlist.length==0}}' class='flex-row flex-column'>
+  <image class='null_icon padding-40 ' src='{{uploadpath}}resource/{{res.nopeople_icon}}'></image>
+  <view class=''>暂未添加团队人员</view>
+</view>
+
+
+
+
+<view class=' margin-40 mid flex-row flex-center' wx:if='{{memberlist.length>0}}' wx:for='{{memberlist}}' wx:key='k'>
+  <view class='flex-row flex-column flex-1'>
+    <view class='flex-row flex-center  padding-40 ' style='width:500rpx;'>
+      <image class='icon-40' src='{{uploadpath}}resource/{{res.enterprise}}'></image>
+      <view class='flex-row column margin-left-40'>
+        <view class='txt-black'>姓名：{{item.name}}</view>
+        <view class='txt-primary margin-top-10' bindtap='phoneCall' id='{{item.member_phone}}'>联系电话：{{item.member_phone}}</view>
+      </view>
+
+
+    </view>
+  </view>
+
+  <view class='bg-red txt-white text-center padding-10' style='width:40rpx' bindtap='binddeleted' id='{{item.id}}'>删除成员</view>
+</view>
+
+
+
+<!-- 
+<navigator url='/pages/addmembers/addmembers' class='add'><image class='icon-75' src='{{uploadpath}}resource/{{res.insert_icon}}'></image></navigator> -->
+
+<navigator url='/pages/addmembers/addmembers' class='add bg-bck_ble  flex-row flex-column '>
+  <view class='padding-30 txt-white'>添加成员</view>
+</navigator>

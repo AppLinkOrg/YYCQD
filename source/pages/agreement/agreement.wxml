@@ -1,0 +1,4 @@
+<!--pages/agreement/agreement.wxml-->
+<view class='padding-40' wx:for='{{agreement}}' wx:key='k'>
+<text decode = "{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.agm_content}}</text>
+</view>

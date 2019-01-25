@@ -1,0 +1,36 @@
+
+
+<view class="flex-wrap flex-center" >
+
+<view  class="flex-wrap flex-center">
+<view  class="margin-30" style='margin:30rpx;color:#BBBBBB ' >手机号码</view>
+<view class="flex-row flex-center " style='justify-content:left;margin-left:13rpx'>
+
+<input placeholder="请输入手机号码" style='border:1px solid #D5D5D5; height:90rpx; width:55%;'></input>
+ 
+
+</view>
+
+</view>
+<button id="yzm" disabled='{{disabled}}' data-id="2" bindtap="getVerificationCode" style='width:40%;'>
+{{time}}
+</button>
+<view>
+<view  class="margin-30" style='margin:30rpx;color:#BBBBBB ' >验证码</view>
+<view class="flex-row flex-center" style='justify-content:center'>
+
+<input placeholder="请输入验证码" style='border:1px solid #D5D5D5; height:90rpx; width:95%;'></input>
+
+</view>
+
+</view>
+
+
+
+
+<view class="h4 bm" 
+  style='margin-top:118rpx ;' id="anniu" >下一步</view>
+</view>
+
+
+

@@ -1,0 +1,80 @@
+/* pages/driverhistory/driverhistory.wxss */
+
+page {
+  background-color: #f3f3f3;
+  padding-bottom: 80rpx;
+}
+
+.asd {
+  border-radius: 8rpx;
+  background-size: 100% 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #f3f3f3;
+}
+
+.nr1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+#z1 {
+  width: 10px;
+  height: 10px;
+  background-color: #39e9a2;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+
+#z2 {
+  width: 10px;
+  height: 10px;
+  background-color: #ffb61b;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+
+#anniu {
+  background-color: #353a4d;
+}
+
+.bm {
+  width: 100%;
+  height: 100rpx;
+  text-align: center;
+  color: white;
+  line-height: 100rpx;
+  margin-bottom: 0rpx;
+  border-radius: 0;
+}
+
+image {
+  margin-top: 8rpx;
+}
+
+.startimg {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.btn {
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+}
+
+.null_img {
+  visibility: hidden;
+  height: 0rpx;
+  width: 0rpx;
+}

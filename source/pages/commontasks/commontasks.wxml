@@ -1,0 +1,71 @@
+<!--pages/commontasks/commontasks.wxml-->
+<view wx:if='{{list.length==0}}' class='flex-row flex-column'>
+  <image class='null_icon padding-40 ' src='{{uploadpath}}resource/{{res.nocontent_icon}}'></image>
+  <view class=''>暂未添加常用任务</view>
+</view>
+
+
+
+<view wx:if='{{list.length>0}}' wx:for='{{list}}' wx:key='k' class='mid margin-top-40 margin-bottom-40'>
+  <navigator url='/pages/changyon/changyon?id={{item.id}}'>
+    <view class='h4 txt-black txt-bold text-center padding-top-20'>{{item.companyname}}</view>
+    <view class='flex-row flex-center padding-40'>
+      <view>任务编号：</view>
+      <view class='flex-1'>{{item.orderno}}</view>
+    </view>
+
+    <view class='flex-row column '>
+      <view class='flex-row flex-center margin-left-30'>
+        <image class='icon-17 ' src='{{uploadpath}}resource/{{res.time_icon}}'></image>
+        <view class='h4-5 margin-left-10'>运输开始时间：{{item.start_time}}</view>
+      </view>
+      <view class='flex-row flex-center margin-left-30 margin-top-20'>
+        <image class='icon-17 ' src='{{uploadpath}}resource/{{res.time_icon}}'></image>
+        <view class='h4-5 margin-left-10'>运输结束时间：{{item.end_time}}</view>
+      </view>
+    </view>
+
+    <view class='flex-row flex-center margin-top'>
+      <view class='flex-row flex-column flex-1 ' style='border-right:1rpx solid #CFCECF'>
+        <view class='flex-row '>
+          <view class='font-left'>0</view>
+          <view class='font-mid padding-top-40 margin-left-10'>/{{item.carcount}}</view>
+          <view class='txt-bold padding-top-60 margin-left-10'>辆</view>
+        </view>
+      </view>
+
+      <view class='flex-row flex-column flex-1 '>
+        <view class='flex-row'>
+          <view class='font-right'>{{item.unitprice}}</view>
+          <view class='txt-bold padding-top-60 margin-left-10'>元/吨</view>
+        </view>
+      </view>
+
+    </view>
+    <view class='flex-row flex-center padding-10 ' style='border-bottom:1rpx solid #CFCECF'>
+      <view class='flex-1 text-center font-bottom margin-bottom-10'>已报名</view>
+      <view class='flex-1 text-center font-bottom margin-bottom-10'>预计运费</view>
+
+    </view>
+    <view class='padding-20 ' style='border-bottom:1rpx solid #CFCECF'>
+      <view class='flex-row  margin-top-20'>
+        <view>
+          <image class='icon-10' src='{{uploadpath}}resource/{{res.green}}'></image>
+        </view>
+        <view class='margin-left-20 h4-5 txt-gray' style='width:600rpx;'>{{item.start_company}}</view>
+      </view>
+      <view class='flex-row  margin-top-20'>
+        <view>
+          <image class='icon-10' src='{{uploadpath}}resource/{{res.orange}}'></image>
+        </view>
+        <view class='margin-left-20 h4-5 txt-gray' style='width:600rpx;'>{{item.end_company}}</view>
+      </view>
+    </view>
+    <view class='flex-row flex-center flex-1 padding-40   bor_btm'>
+      <image class='icon-20' src='{{uploadpath}}resource/{{res.cargotype}}'></image>
+      <view class='txt-gray h4-5 flex-1 margin-left-20'>货运类型</view>
+      <view class='h4-5 txt-gray'>{{item.stuff_type_id}}</view>
+    </view>
+  </navigator>
+  <navigator class='padding-20 bg-red txt-white text-center' id='{{item.id}}' bindtap='binddeleted'>删除常用任务</navigator>
+</view>

@@ -1,0 +1,333 @@
+<!--pages/driver/driver.wxml-->
+<view>
+  <view class='Top'>
+    <view style='height:100rpx; border-bottom:1px solid #F3F3F3 ' class="flex-row flex-center bg ">
+      <navigator url='/pages/my/my?openid={{UserInfo.openid}}' class='' style='margin-left:20rpx'>
+        <image class='icon-30 ' src='{{uploadpath}}resource/{{res.siji_icon}}'></image>
+      </navigator>
+
+      <view class='flex-2 h4-5 {{tab==0?"aa":"bb"}} padding-20 ' bindtap='changetab' id="0">新任务</view>
+      <view class='flex-2 h4-5  {{tab==1?"aa":"bb"}} padding-20' bindtap='changetab' id="1">已报名</view>
+      <view class='flex-2 h4-5  {{tab==2?"aa":"bb"}} padding-20' bindtap='changetab' id="2">待完成</view>
+
+      <!-- <view class='xiaoxi' wx:if='{{waitlist.length>0}}'>
+        <view class='txt-white h6 nm' style='margin-left:11rpx;'>{{waitlist.length}}</view>
+        <image class='num' src='{{uploadpath}}resource/{{res.xiaoxitishi}}'></image>
+      </view> -->
+      <!-- <view class='num txt-white h6 text-center'>{{dwc.length}}</view> -->
+    </view>
+
+    <view style='height:70rpx;' class="flex-row flex-center bg  " hidden='{{tab!=0}}'>
+      <view class="h5 margin-left-20 flex-1">共有任务{{num}}条</view>
+      <picker bindchange="qwe" value="{{index}}" range="{{array}}">
+        <view class="h5 margin-right-10  picker " style=''>{{array[index]}}</view>
+      </picker>
+      <picker bindchange="qwe" value="{{index}}" range="{{array}}">
+        <image class='icon-10 margin-right-20' src='{{uploadpath}}resource/{{res.lowericon}}'></image>
+      </picker>
+    </view>
+
+    <navigator url='/pages/noticelist/noticelist' class='padding-20 bg-gray flex-row flex-center'>
+      <image class='icon' src='{{uploadpath}}resource/{{res.gonggao}}'></image>
+      <swiper class="txt-black swiper_container bg-white" style='border-radius:10rpx;margin-left:20rpx;' vertical="true" autoplay="false" circular="true" interval="3000">
+        <swiper-item wx:for="{{messagelist}}" wx:key="k" wx:for-index="idx">
+          <view class=' h4-5 txt-gray padding-left-20'>{{item.mess_title}}</view>
+        </swiper-item>
+      </swiper>
+    </navigator>
+
+  </view>
+  <!--新任务区域-->
+  <navigator wx:for="{{list}}" wx:for-index="idx" wx:key='k' bindtap='newtask' id='{{item.id}}' class="nr1  flex-center flex-wrap margin-top" style='margin-top:100rpx' hidden='{{tab!=0}}' wx:if="{{item.taskstatus_name=='报名中'&&item.status=='A'&&days[idx]>0}}">
+    <view class="asd flex-1  " style='width:95%'>
+
+      <view style=' margin-bottom:30rpx ' class="flex-center flex-row margin-top-20">
+        <view class="margin-left-20  ">
+
+        </view>
+        <view class="margin-left-20  " style=''>订单编号</view>
+        <view class="margin-left-20 txt-red">{{item.orderno}}</view>
+      </view>
+
+      <view class="flex-center flex-row margin-top-20">
+        <view class="margin-left-20  ">
+          <image class='icon-30 ' src='{{uploadpath}}resource/{{res.gonsi}}'></image>
+        </view>
+        <view class="margin-left-20 h4 txt-black">{{item.enterprise_id_name}}</view>
+      </view>
+
+      <view style=' margin-bottom:30rpx ' class="flex-center flex-row margin-top-20">
+        <view class="margin-left-20  ">
+          <image class='icon-20 ' src='{{uploadpath}}resource/{{res.time_icon}}'></image>
+        </view>
+        <view class="margin-left-20  ">距离报名结束还剩:</view>
+        <view class="margin-left-20 txt-red">{{days[idx]-1}}天 {{xs[idx]}}:{{sj[idx]}}</view>
+      </view>
+
+    </view>
+
+    <view class="asd flex-1" style='width:95%'>
+
+      <view class=' flex-center margin-top-20  flex-row '>
+        <view class="flex-1 flex-row flex-bottom" style=''>
+
+          <view class="flex-3 flex-center " style='text-align: center; font-size:70rpx !important; color:#4B69BB'>{{item.unitprice}}</view>
+          <view class="flex-2 flex-center " style='text-align: center;margin-right:20rpx'>元/吨</view>
+
+        </view>
+        <view class="flex-1 flex-wrap nr1 flex-center ">
+          <view class="h3 " style=' color:#F7B81F'>{{year[idx]}}</view>
+          <view class="">{{month[idx]}}/{{day[idx]}}</view>
+        </view>
+        <view class="flex-1 flex-wrap  nr1 flex-center">
+          <!-- <view class="h3 " style=' color:#F7B81F'>{{bm[idx]}}/{{item.carcount}}</view> -->
+          <view class="h3 " style=' color:#F7B81F'>{{item.applycount}}/{{item.carcount}}</view>
+          <view class="">已报名</view>
+        </view>
+      </view>
+
+      <view class=' flex-center margin-top-20   flex-row ' style='width:100%;  margin-bottom:30rpx'>
+        <view class="flex-1 h4-5 " style='margin-left:60rpx'>预计收入</view>
+        <view class="flex-1  margin-left-30 h4-5 txt-gray">截止时间</view>
+        <view class="flex-1 margin-left-30 h4-5 txt-gray">报名车辆</view>
+      </view>
+
+    </view>
+
+
+    <view class="asd flex-1" style=' width:95%'>
+      <view class="flex-wrap" style=' margin-bottom:30rpx'>
+        <!-- <view class="flex-row margin-top:10">
+          <view class="margin-left-20   " id="z1" style='margin-top:15rpx'></view>
+          <view class="margin-left-20">{{item.startaddress}}</view>
+        </view> -->
+
+
+        <view class='flex-row flex-center margin-top-20'>
+          <image class='icon-10 margin-left-20 margin-right-20' src='{{uploadpath}}resource/{{res.green}}'></image>
+          <view class='  ' style='width:600rpx;'>{{item.start_company}}</view>
+        </view>
+
+
+        <!-- <view class=" margin-top-10 h5 txt-gray" style='margin-left:60rpx'>起点距您206公里</view> -->
+        <!-- <view class="flex-row">
+          <view class="margin-left-20 " id="z2" style='margin-top:30rpx'></view>
+          <view class="margin-left-20 margin-top-10">{{item.targetaddress}}</view>
+        </view> -->
+
+        <view class='flex-row flex-center margin-top-20'>
+          <image class='icon-10 margin-left-20 margin-right-20' src='{{uploadpath}}resource/{{res.orange}}'></image>
+          <view class='  ' style='width:600rpx;'>{{item.end_company}}</view>
+        </view>
+
+        <view class="margin-left-30 h5 margin-top-10 txt-gray" style=' margin-left:60rpx'>总里程{{item.distance}}</view>
+      </view>
+
+    </view>
+
+    <view class="asd flex-1" style='width:95%'>
+      <view class="flex-row margin-top-20 " style=' margin-bottom:30rpx'>
+        <view class="margin-left-20">
+          <image class='icon-20 ' src='{{uploadpath}}resource/{{res.cargotype}}'></image>
+        </view>
+        <view class="flex-1 margin-left-20">货运类型</view>
+        <view class="margin-right-20 txt-gray">{{item.stuff_type_id}}</view>
+      </view>
+    </view>
+
+
+
+
+  </navigator>
+
+  <view wx:if='{{num==0}}' class='flex-row flex-column' hidden='{{tab!=0}}'>
+    <image class='null_icon padding-40 ' src='{{uploadpath}}resource/{{res.nocontent_icon}}'></image>
+    <view class=''>暂无历史任务</view>
+  </view>
+
+  <view wx:if='{{ybm.length==0}}' class='flex-row flex-column' hidden='{{tab!=1}}'>
+    <image class='null_icon padding-40 ' src='{{uploadpath}}resource/{{res.nocontent_icon}}'></image>
+    <view class=''>暂无已报名任务</view>
+  </view>
+
+  <view wx:if='{{dwc.length==0}}' class='flex-row flex-column' hidden='{{tab!=2}}'>
+    <image class='null_icon padding-40 ' src='{{uploadpath}}resource/{{res.nocontent_icon}}'></image>
+    <view class=''>暂无待完成任务</view>
+  </view>
+
+
+  <!--已报名区域-->
+  <view wx:for="{{ybm}}" wx:for-index="idx" wx:key='k' id='{{item.id}}' bindtap='registered' class="nr1  flex-center flex-wrap margin-top" hidden='{{tab!=1}}' wx:if="{{item.openid==UserInfo.openid&&item.transport_name=='已报名'}}">
+    <view class="asd flex-1  " style='width:95%'>
+
+      <view class='flex-row flex-center'>
+        <view style=' margin-bottom:30rpx ;margin-top:30rpx ' class="flex-center flex-row  flex-1">
+          <view class="margin-left-20  ">订单编号</view>
+          <view class="margin-left-20 margin-right-20 " style='color:red'>{{ybm[idx].order_orderno}}</view>
+        </view>
+
+
+        <!-- <image  class='icon-75' src='{{uploadpath}}resource/{{res.chaoshi}}'></image> -->
+      </view>
+
+      <view class='flex-row flex-center'>
+        <view style=' margin-bottom:30rpx ;margin-top:10rpx; ' class="flex-center flex-row  flex-1">
+          <view class="margin-left-20  ">报名单号</view>
+          <view class="margin-left-20 margin-right-20 " style='color:red'>{{ybm[idx].applyno}}</view>
+        </view>
+
+
+        <!-- <image  class='icon-75' src='{{uploadpath}}resource/{{res.chaoshi}}'></image> -->
+      </view>
+
+
+      <view class="flex-center flex-row margin-top-20">
+        <view class="margin-left-20  ">
+          <image class='icon-30 ' src='{{uploadpath}}resource/{{res.gonsi}}'></image>
+        </view>
+        <view class="margin-left-20 h4 flex-1 " style='color:#222222'>{{ybm[idx].member_name}}</view>
+      </view>
+
+      <view style=' margin-bottom:30rpx ;margin-top:30rpx ' class="flex-center flex-row ">
+        <view class="margin-left-20  ">
+          <image class='icon-20 ' src='{{uploadpath}}resource/{{res.time_icon}}'></image>
+        </view>
+        <view class="margin-left-20 flex-1 ">运输时间</view>
+        <view class=" margin-right-20 " style='color:red'>{{month1[idx]}}/{{day1[idx]}} {{hh1[idx]}}:{{mm1[idx]}} - {{month2[idx]}}/{{day2[idx]}} {{hh2[idx]}}:{{mm2[idx]}}</view>
+      </view>
+    </view>
+
+
+    <view class="asd flex-1" style='width:95%'>
+      <view class=' flex-center margin-top-20   flex-row ' style='width:100%;  margin-bottom:30rpx'>
+        <view class="flex-1 h4-5 txt-gray padding-left-30" style=''>预计收入</view>
+        <view class="flex-1   h4-5 txt-gray">距报名结束还剩</view>
+      </view>
+      <view class=' flex-center   flex-row '>
+        <view class="flex-1 flex-row flex-bottom">
+          <view class="margin-left-20 " style='font-size:98rpx !important; color:#4B69BB'>{{ybm[idx].order_unitprice}}</view>
+          <view class="">元/吨</view>
+        </view>
+
+        <view class="flex-1  flex-row column " style='text-algin:center'>
+          <view class='' hidden='{{days1[idx]==0}}' style='font-size:50rpx !important; color:#F9B725'>{{days1[idx]-1}}天</view>
+          <view class='' style='font-size:50rpx !important; color:#F9B725'>{{xs1[idx]}}:{{sj1[idx]}}</view>
+          <!-- <view class='margin-left-30' wx:if='{{xs1<0}}'  style='font-size:70rpx !important; color:#F9B725'>00:00:00</view> -->
+        </view>
+
+        <!-- <view class="flex-1  flex-row column " wx:if='{{days1[idx]-1<=0||xs1[idx]<=0||sj1[idx]==0}}' style='text-algin:center'>
+          <view class='margin-left-20' style='font-size:50rpx !important; color:#F9B725'>00:00:00</view>
+        </view> -->
+
+      </view>
+    </view>
+
+    <view class="asd flex-1" style=' width:95%'>
+      <view class="flex-wrap" style=' margin-bottom:30rpx'>
+        <view class="flex-row margin-top:10">
+          <view class="margin-left-20  " id="z1" style='margin-top:15rpx'></view>
+          <view class="margin-left-20">{{ybm[idx].order_start_company}}</view>
+        </view>
+        <!-- <view class=" margin-top-10 h5" style='color:#BBBBBB; margin-left:60rpx'>起点距您206公里</view> -->
+        <view class="flex-row">
+          <view class="margin-left-20 " id="z2" style='margin-top:30rpx'></view>
+          <view class="margin-left-20 margin-top-10">{{ybm[idx].order_end_company}}</view>
+        </view>
+        <view class="margin-left-30 h5 margin-top-10 txt-gray" wx:if='{{ybm[idx].order_distance!=""||ybm[idx].order_distance!="undefined"}}' style=' margin-left:60rpx'>总里程：{{ybm[idx].order_distance}}</view>
+        <view class="margin-left-30 h5 margin-top-10 txt-gray" wx:if='{{ybm[idx].order_distance==""||ybm[idx].order_distance=="undefined"}}' style=' margin-left:60rpx'>总里程：距离未成功获取</view>
+
+      </view>
+
+    </view>
+
+
+
+
+
+
+  </view>
+
+
+
+  <!--待完成区域-->
+  <navigator wx:for="{{dwc}}" wx:for-index="idx" wx:key='k' id='{{item.id}}' bindtap='tobecompleted' class="nr1  flex-center flex-wrap  margin-top" hidden='{{tab!=2}}' wx:if="{{item.transport_name=='待完成'}}">
+    <view class="asd flex-1  " style='width:95%'>
+
+      <view style=' margin-bottom:30rpx ;margin-top:30rpx ' class="flex-center flex-row ">
+        <view class="  ">
+
+        </view>
+        <view class="margin-left-20  ">订单编号</view>
+        <view class="margin-left-20 margin-right-20 " style='color:red'>{{dwc[idx].order_orderno}}</view>
+      </view>
+
+      <view class='flex-row flex-center'>
+        <view style=' margin-bottom:30rpx ;margin-top:10rpx; ' class="flex-center flex-row  flex-1">
+          <view class="margin-left-20  ">报名单号</view>
+          <view class="margin-left-20 margin-right-20 " style='color:red'>{{dwc[idx].applyno}}</view>
+        </view>
+      </view>
+
+      <view class="flex-center flex-row margin-top-20">
+        <view class="margin-left-20  ">
+          <image class='icon-30 ' src='{{uploadpath}}resource/{{res.gonsi}}'></image>
+        </view>
+        <view class="margin-left-20 h4 flex-1 " style='color:#222222'>{{dwc[idx].member_name}}</view>
+
+
+      </view>
+
+      <view style=' margin-bottom:30rpx ;margin-top:30rpx ' class="flex-center flex-row ">
+        <view class="margin-left-20  ">
+          <image class='icon-20 ' src='{{uploadpath}}resource/{{res.time_icon}}'></image>
+        </view>
+        <view class="margin-left-20 flex-1 ">运输时间</view>
+        <view class=" margin-right-20 " style='color:red'>{{item.month3}}/{{item.day3}} {{item.hh3}}:{{item.mm3}} - {{item.month4}}/{{item.day4}} {{item.hh4}}:{{item.mm4}}</view>
+      </view>
+
+    </view>
+
+
+
+    <view class="asd flex-1" style='width:95%'>
+      <view class=' flex-center margin-top-20   flex-row ' style='width:100%;  margin-bottom:30rpx'>
+        <view class="flex-1 h4-5 txt-gray padding-left-30">预计收入</view>
+        <view class="flex-1   h4-5 txt-gray">距任务结束还剩</view>
+      </view>
+      <view class=' flex-center margin-top-20  flex-row '>
+        <view class="flex-1 flex-row flex-bottom">
+          <view class="margin-left-20 " style='font-size:98rpx !important; color:#4B69BB'>{{dwc[idx].order_unitprice}}</view>
+          <view class="">元/吨</view>
+        </view>
+        <view class="flex-1  flex-row column  " style='text-algin:center'>
+          <view class='' hidden='{{days2[idx]==0}}' style='font-size:50rpx !important; color:#F9B725'>{{days2[idx]-1}}天 </view>
+          <view class='' style='font-size:50rpx !important; color:#F9B725'>{{xs2[idx]}}:{{sj2[idx]}}</view>
+          <!-- <view class='margin-left-30' wx:if='{{xs1<0}}'  style='font-size:70rpx !important; color:#F9B725'>00:00:00</view> -->
+        </view>
+
+        <!-- <view class="flex-1  flex-row column " wx:if='{{xs2[idx]<0}}' style='text-algin:center'>
+          <view class='margin-left-20' style='font-size:50rpx !important; color:#F9B725'>00:00:00</view>
+        </view> -->
+
+      </view>
+    </view>
+
+    <view class="asd flex-1" style=' width:95%'>
+      <view class="flex-wrap" style=' margin-bottom:30rpx'>
+        <view class="flex-row margin-top:10">
+          <view class="margin-left-20  " id="z1" style='margin-top:15rpx'></view>
+          <view class="margin-left-20">{{dwc[idx].order_start_company}}</view>
+        </view>
+        <!-- <view class=" margin-top-10 h5" style='color:#BBBBBB; margin-left:60rpx'>起点距您206公里</view> -->
+        <view class="flex-row">
+          <view class="margin-left-20 " id="z2" style='margin-top:30rpx'></view>
+          <view class="margin-left-20 margin-top-10">{{dwc[idx].order_end_company}}</view>
+        </view>
+        <view class="margin-left-30 h5 margin-top-10 txt-gray" style=' margin-left:60rpx'>总里程：{{dwc[idx].order_distance}}</view>
+      </view>
+
+    </view>
+
+  </navigator>
+
+</view>

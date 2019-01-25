@@ -1,0 +1,6 @@
+/* pages/weighingsheet/weighingsheet.wxss */
+.img{
+  visibility: hidden;
+  height: 0rpx;
+  width: 0rpx;
+}

@@ -1,0 +1,33 @@
+<!--pages/dirhistory/dirhistory.wxml-->
+
+  <view wx:if='{{completedlist.length==0}}' class='flex-row flex-column'>
+    <image class='null_icon padding-40 ' src='{{uploadpath}}resource/{{res.driverlist_icon}}'></image>
+    <view class=''>暂无人员完成运输</view>
+  </view>
+  <view class=' mid margin-40' wx:for='{{completedlist}}' wx:key='k'>
+    <view class='padding-40' style='border-bottom:1rpx solid #CFCECF'>
+      <view class='flex-row flex-center'>
+        <view class='flex-row flex-center flex-1'>
+          <image class='icon-20' src='{{uploadpath}}resource/{{res.enterprise}}'></image>
+          <view class='flex-1 margin-left-20 h4 txt-black'>{{item.carriage_driver_name}}</view>
+        </view>
+
+        <navigator class='flex-row flex-center margin-top-20' id='{{item.driver_phone}}' bindtap='phoneCall'>
+          <image class='icon-20' src='{{uploadpath}}resource/{{res.phone_icon}}'></image>
+          <view class='flex-1 margin-left-20 txt-black'>联系司机</view>
+        </navigator>
+      </view>
+      <view class='flex-row flex-center'>
+        <view class='flex-row flex-center padding-20 flex-1'>
+          <view class='font-left'>{{item.tonnage}}</view>
+          <view class='txt-bold h4'>吨</view>
+        </view>
+
+        <view class='flex-row flex-center    bg-orange' style='border-radius:7rpx; height:80rpx;'>
+          <view class='padding-10 margin-left-10 margin-right-10 txt-bold txt-black' style='border:2rpx solid black;border-radius:7rpx;'>{{item.vehicle}}</view>
+        </view>
+      </view>
+    </view>
+
+
+  </view>

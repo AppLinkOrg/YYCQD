@@ -1,0 +1,41 @@
+<!--pages/aboutus/aboutus.wxml-->
+<view class='flex-row flex-column '>
+  <image class='icon_top' src='{{uploadpath}}resource/{{res.enterprise_bg}}'></image>
+  <view class='h4 txt-black txt-bold margin-top'>大得森</view>
+</view>
+
+<view class='bg-white border-radius mid margin-top'>
+
+  <!-- <view style='border-bottom:1rpx dashed #e5e4e7' wx:for='{{abouts}}'  wx:key='k'>
+    <view class='margin-20 padding-10 flex-row flex-column'>
+      <view class='h4-5 txt-black flex-1'>{{item.abouttitle}}</view>
+      <view class='txt-gray margin-left-10 margin-top'>{{item.aboutus_content}}</view>
+    </view>
+  </view> -->
+
+  <view  wx:for='{{abouts}}' wx:for-index='idx'  wx:key='k' class='padding-20 {{idx!=0?"border_top ":""}}' >
+    <view class='margin-20  flex-row flex-center  {{idx==0?"flex-row flex-column ":""}}'>
+      <view class='h4-5 txt-black flex-1 txt-bold'>{{item.title_name}}</view>
+      <view wx:if='{{item.title!=4&&item.title!=1}}'  class='txt-black margin-left-10 {{idx==0?"txt-gray margin-top-20":""}}'>{{item.aboutus_content}}</view>
+
+<image  wx:if='{{item.title==4}}' class='icon-20' src='{{uploadpath}}resource/{{res.phone_icon}}'></image>
+
+      <view wx:if='{{item.title==4}}' bindtap='phoneCall' id='{{item.aboutus_content}}' class='txt-primary margin-left-10 {{idx==0?"txt-gray margin-top-20":""}}'>{{item.aboutus_content}}</view>
+
+      <text decode= "{{true}}" space="nbsp" wx:if='{{item.title==1}}'  class='txt-primary  {{idx==0?"txt-gray margin-top-20":""}}'>{{item.aboutus_content}}</text>
+
+
+
+    </view>
+  </view>
+
+
+  <!-- <view style='border-bottom:1rpx dashed #e5e4e7' wx:for='{{abouts}}' hidden='{{item.title!="C"}}' wx:key='k'>
+    <view class='margin-20 padding-10 flex-row flex-center'>
+      <view class='h4-5 txt-black flex-1'>{{item.abouttitle}}</view>
+      <image class='icon-20' src='{{uploadpath}}resource/{{res.phone_icon}}'></image>
+      <view class='txt-primary margin-left-10 ' bindtap='phoneCall' id='{{item.aboutus_content}}'>{{item.aboutus_content}}</view>
+    </view>
+  </view> -->
+
+</view>

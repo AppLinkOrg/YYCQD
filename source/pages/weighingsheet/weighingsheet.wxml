@@ -1,0 +1,30 @@
+<!--pages/weighingsheet/weighingsheet.wxml-->
+
+<view class='flex-row flex-column padding-40'>
+
+<view class='text-center txt-black txt-bold margin-bottom-20'>起点过磅单</view>
+
+  <image bindtap='viewPhoto' id='{{uploadpath}}photo/{{applyinfo.p1}}' class='margin-top {{applyinfo.p1==" "||applyinfo.p1=="undefined"?"img":""}}' src='{{uploadpath}}photo/{{applyinfo.p1}}'></image>
+  <image bindtap='viewPhoto' id='{{uploadpath}}photo/{{applyinfo.p2}}' class='margin-top {{applyinfo.p2==""||applyinfo.p2=="undefined"?"img":""}}' src='{{uploadpath}}photo/{{applyinfo.p2}}'></image>
+  <image bindtap='viewPhoto' id='{{uploadpath}}photo/{{applyinfo.p3}}' class='margin-top {{applyinfo.p3==""||applyinfo.p3=="undefined"?"img":""}}' src='{{uploadpath}}photo/{{applyinfo.p3}}'></image>
+  <image bindtap='viewPhoto' id='{{uploadpath}}photo/{{applyinfo.p4}}' class='margin-top {{applyinfo.p4==""||applyinfo.p4=="undefined"?"img":""}}' src='{{uploadpath}}photo/{{applyinfo.p4}}'></image>
+  <image bindtap='viewPhoto' id='{{uploadpath}}photo/{{applyinfo.p5}}' class='margin-top {{applyinfo.p5==""||applyinfo.p5=="undefined"?"img":""}}' src='{{uploadpath}}photo/{{applyinfo.p5}}'></image>
+  <image bindtap='viewPhoto' id='{{uploadpath}}photo/{{applyinfo.p6}}' class='margin-top {{applyinfo.p6==""||applyinfo.p6=="undefined"?"img":""}}' src='{{uploadpath}}photo/{{applyinfo.p6}}'></image>
+  <image bindtap='viewPhoto' id='{{uploadpath}}photo/{{applyinfo.p7}}' class='margin-top {{applyinfo.p7==""||applyinfo.p7=="undefined"?"img":""}}' src='{{uploadpath}}photo/{{applyinfo.p7}}'></image>
+  <image bindtap='viewPhoto' id='{{uploadpath}}photo/{{applyinfo.p8}}' class='margin-top {{applyinfo.p8==""||applyinfo.p8=="undefined"?"img":""}}' src='{{uploadpath}}photo/{{applyinfo.p8}}'></image>
+  <image bindtap='viewPhoto' id='{{uploadpath}}photo/{{applyinfo.p9}}' class='margin-top {{applyinfo.p9==""||applyinfo.p9=="undefined"?"img":""}}' src='{{uploadpath}}photo/{{applyinfo.p9}}'></image>
+
+
+<view class='text-center txt-black txt-bold margin-bottom-20 margin-top-20'>终点过磅单</view>
+
+
+  <image bindtap='viewPhoto' id='{{uploadpath}}photo/{{applyinfo.photo}}' class='margin-top {{applyinfo.photo=="undefined"||applyinfo.photo==""?"img":""}}' src='{{uploadpath}}photo/{{applyinfo.photo}}'></image>
+  <image bindtap='viewPhoto' id='{{uploadpath}}photo/{{applyinfo.photo2}}' class='margin-top {{applyinfo.photo2=="undefined"||applyinfo.photo2==""?"img":""}}' src='{{uploadpath}}photo/{{applyinfo.photo2}}'></image>
+  <image bindtap='viewPhoto' id='{{uploadpath}}photo/{{applyinfo.photo3}}' class='margin-top {{applyinfo.photo3=="undefined"||applyinfo.photo3==""?"img":""}}' src='{{uploadpath}}photo/{{applyinfo.photo3}}'></image>
+  <image bindtap='viewPhoto' id='{{uploadpath}}photo/{{applyinfo.photo4}}' class='margin-top {{applyinfo.photo4=="undefined"||applyinfo.photo4==""?"img":""}}' src='{{uploadpath}}photo/{{applyinfo.photo4}}'></image>
+  <image bindtap='viewPhoto' id='{{uploadpath}}photo/{{applyinfo.photo5}}' class='margin-top {{applyinfo.photo5=="undefined"||applyinfo.photo5==""?"img":""}}' src='{{uploadpath}}photo/{{applyinfo.photo5}}'></image>
+  <image bindtap='viewPhoto' id='{{uploadpath}}photo/{{applyinfo.photo6}}' class='margin-top {{applyinfo.photo6=="undefined"||applyinfo.photo6==""?"img":""}}' src='{{uploadpath}}photo/{{applyinfo.photo6}}'></image>
+  <image bindtap='viewPhoto' id='{{uploadpath}}photo/{{applyinfo.photo7}}' class='margin-top {{applyinfo.photo7=="undefined"||applyinfo.photo7==""?"img":""}}' src='{{uploadpath}}photo/{{applyinfo.photo7}}'></image>
+  <image bindtap='viewPhoto' id='{{uploadpath}}photo/{{applyinfo.photo8}}' class='margin-top {{applyinfo.photo8=="undefined"||applyinfo.photo8==""?"img":""}}' src='{{uploadpath}}photo/{{applyinfo.photo8}}'></image>
+  <image bindtap='viewPhoto' id='{{uploadpath}}photo/{{applyinfo.photo9}}' class='margin-top {{applyinfo.photo9=="undefined"||applyinfo.photo9==""?"img":""}}' src='{{uploadpath}}photo/{{applyinfo.photo9}}'></image>
+</view>

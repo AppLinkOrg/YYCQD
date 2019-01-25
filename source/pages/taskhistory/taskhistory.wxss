@@ -1,0 +1,89 @@
+/* pages/taskhistory/taskhistory.wxss */
+
+Page {
+  margin-bottom: 80rpx;
+}
+
+.icon {
+  width: 50rpx;
+  height: 40rpx;
+}
+
+.column {
+  align-content: center;
+  flex-direction: column;
+}
+.signup{
+width:170rpx;
+height:50rpx;
+line-height:50rpx;
+border:4rpx solid red;
+border-radius:50rpx;
+}
+.icon_lower {
+  width: 30rpx;
+  height: 25rpx;
+}
+
+.txt-white {
+  color: white;
+  border-bottom: 4rpx solid white;
+  border-bottom-width: thick;
+}
+
+.signup {
+  width: 170rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border: 4rpx solid red;
+  border-radius: 50rpx;
+}
+
+.mid {
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  box-shadow: 1rpx 2rpx 25rpx 2rpx rgb(173, 173, 173);
+  border-radius: 10rpx;
+}
+
+.top {
+  position: fixed;
+  top: 0px;
+  z-index: 1;
+  width: 100%;
+}
+
+.line {
+  background: #cfcecf;
+}
+
+.font-left {
+  font-size: 100rpx;
+  font-weight: bold;
+  color: #26c48b;
+}
+
+.font-mid {
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #8a8a8a;
+}
+
+.font-right {
+  font-size: 100rpx;
+  font-weight: bold;
+  color: #486ab7;
+}
+
+.font-bottom {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: rgb(177, 174, 174);
+}
+
+.null_icon {
+  height: 200rpx;
+  width: 240rpx;
+  margin-top: 150rpx;
+  margin-left: 20rpx;
+}

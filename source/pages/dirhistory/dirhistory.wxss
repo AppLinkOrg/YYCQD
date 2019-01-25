@@ -1,0 +1,33 @@
+/* pages/dirhistory/dirhistory.wxss */
+Page{
+  padding-top:80rpx;
+  margin-bottom: 100rpx;
+}
+.to-white{
+  color: white;
+  border-bottom: 2rpx  solid white;
+  border-bottom-width: thick;
+}
+.top{
+  position: fixed;
+  top:0px;
+  z-index: 1;
+  width: 100%;
+  
+}
+.mid{
+  box-shadow:1rpx 1rpx 25rpx 1rpx rgb(201, 200, 200);
+  border-radius:7rpx;
+}
+.font-left{
+  font-size: 100rpx;
+  font-weight:bold;
+  color: #26C48B;
+}
+.null_icon{
+  height: 200rpx;
+  width: 350rpx;
+  margin-top: 150rpx;
+  margin-left: 20rpx;
+  opacity: 0.8;
+}

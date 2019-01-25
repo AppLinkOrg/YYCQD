@@ -1,0 +1,16 @@
+/* pages/usercategory/usercategory.wxss */
+
+.driver_bg{
+  border-radius:20rpx;
+  box-shadow:0px 2rpx 25rpx 2rpx rgb(177, 137, 91);
+}
+.enterprise_bg{
+  border-radius:20rpx;
+  box-shadow:0px 2rpx 25rpx 2rpx rgb(90, 120, 167);
+}
+.bg{
+  width: 500rpx;
+  height: 250rpx;
+  border-top-right-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+}

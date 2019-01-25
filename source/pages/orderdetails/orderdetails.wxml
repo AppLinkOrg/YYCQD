@@ -1,0 +1,213 @@
+<!--pages/xq/xq.wxml-->
+<form bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
+  <view class="nr1  flex-center flex-wrap margin-top-20">
+
+
+    <view class="asd flex-1" style='width:95%'>
+      <view class=' flex-center margin-top-20  flex-row '>
+        <view class="flex-1 flex-wrap nr1 flex-center " style='border-right:1px solid #F3F3F3; '>
+          <view class="h3 " style=' color:#F7B81F'>{{hh}}:{{mm}}</view>
+          <view class="">{{month}}/{{day}}</view>
+        </view>
+        <view class="flex-1 flex-wrap  nr1 flex-center" style='border-right:1px solid #F3F3F3; '>
+          <view class="h3 " style=' color:#F7B81F'>{{hh1}}:{{mm1}}</view>
+          <view class="">{{month1}}/{{day1}}</view>
+        </view>
+        <view class="flex-1 flex-row  flex-bottom" style='justify-content:center;'>
+          <view class="margin-left-20" style='font-size:30rpx !important;'>{{totaldun}}/{{weight}}</view>
+          <view class="">吨</view>
+        </view>
+      </view>
+      <view class=' flex-center margin-top-20   flex-row ' style='width:100%;justify-content:center; margin-bottom:30rpx'>
+        <view class="flex-1 h4-5 text-center" style=''>报名时间</view>
+        <view class="flex-1   h4-5 text-center">截止时间</view>
+        <view class="flex-1  h4-5 text-center">已运吨数</view>
+      </view>
+    </view>
+    <view class="asd flex-1  " style='width:95%'>
+      <view class="flex-center flex-row margin-top-20" style='justify-content:center'>
+        <view class="margin-left-20  ">
+          <image class='icon-30' src='{{uploadpath}}resource/{{res.gonsi}}'></image>
+        </view>
+        <view class="margin-left-10 h4  " style='color:#222222'>{{info.enterprise_id_name}}</view>
+      </view>
+
+      <view style=' margin-bottom:30rpx ' class=" flex-row flex-center margin-top-20">
+        <view class="margin-left-20  ">运输时间:</view>
+        <view class="margin-left-20 flex-1 ">{{month2}}/{{day2}} {{hh2}}:{{mm2}}</view>
+        <view>———</view>
+        <view class="margin-left-20  margin-right-20">{{month3}}/{{day3}} {{hh3}}:{{mm3}}</view>
+      </view>
+
+    </view>
+
+
+    <view class="asd flex-1" style=' width:95%'>
+      <view class="flex-wrap" style=' margin-bottom:30rpx'>
+
+
+        <view class="" style=''>
+          <view class="flex-row flex-center margin-top-10">
+            <view class="flex-row column flex-1">
+
+
+
+
+              <view class='flex-row flex-center'>
+                <image class='icon-10 margin-left-20 margin-right-20' src='{{uploadpath}}resource/{{res.green}}'></image>
+                <view class=''>起点企业：{{start_company}}</view>
+              </view>
+              <view class="margin-left-60">{{startaddress}}</view>
+
+            </view>
+
+            <navigator bindtap='openMap' id="{{startaddress}}" style='width:90rpx;  border-left:1px solid #F3F3F3;display:flex;justify-content: center'>
+              <image class='icon-30' src='{{uploadpath}}resource/{{res.daohan}} '></image>
+            </navigator>
+
+          </view>
+
+        </view>
+
+        <view class="" style=''>
+          <view class="flex-row flex-center margin-top-10">
+            <view class="flex-row column flex-1">
+
+              <view class='flex-row flex-center'>
+                <image class='icon-10 margin-left-20 margin-right-20' src='{{uploadpath}}resource/{{res.orange}}'></image>
+                <view class=' margin-top-20'>终点企业：{{end_company}}</view>
+              </view>
+              
+              <view class="margin-left-60">{{targetaddress}}</view>
+
+              <view class=" margin-top-10 h5" style=' margin-left:60rpx'>总里程{{distance}}</view>
+            </view>
+
+            <navigator bindtap='openMap' id="{{targetaddress}}" style='width:90rpx;  border-left:1px solid #F3F3F3;display:flex;justify-content: center'>
+              <image class='icon-30' src='{{uploadpath}}resource/{{res.daohan}} '></image>
+            </navigator>
+
+          </view>
+
+        </view>
+      </view>
+
+    </view>
+
+    <view class="asd flex-1" style='width:95%'>
+      <view class="flex-row margin-top-20 " style=' margin-bottom:30rpx'>
+        <view class="margin-left-20">
+          <image class='icon-25' src='{{uploadpath}}resource/{{res.cargotype}}'></image>
+        </view>
+        <view class="flex-1 margin-left-20">货运类型</view>
+        <view class="margin-right-20">{{stuff_type_id}}</view>
+      </view>
+    </view>
+
+    <view class="asd flex-1" style='width:95%' bindtap='phoneCall' id='{{enrollinfo.member_phone}}'>
+      <view class="flex-row margin-top-20 " style=' margin-bottom:30rpx'>
+        <view class="margin-left-20">
+          <image class='icon-25' src='{{uploadpath}}resource/{{res.baoming}}'></image>
+        </view>
+        <view class="flex-1 margin-left-20">报名联系人</view>
+        <view class="margin-right-20">{{enrollinfo.name}}</view>
+        <view class="margin-right-20">{{enrollinfo.member_phone}}</view>
+      </view>
+    </view>
+
+    <!-- <view class="asd flex-1" style='width:95%' bindtap='phoneCall' id='{{startinfo.member_phone}}'>
+      <view class="flex-row margin-top-20 " style=' margin-bottom:30rpx'>
+        <view class="margin-left-20">
+          <image class='icon-25' src='{{uploadpath}}resource/{{res.qidian}}'></image>
+        </view>
+        <view class="flex-1 margin-left-20">起点联系人</view>
+        <view class="margin-right-20">{{startinfo.name}}</view>
+        <view class="margin-right-20">{{startinfo.member_phone}}</view>
+      </view>
+    </view>
+
+    <view class="asd flex-1" style='width:95%'  bindtap='phoneCall' id='{{endinfo.member_phone}}'>
+      <view class="flex-row margin-top-20 " style=' margin-bottom:30rpx'>
+        <view class="margin-left-20">
+          <image class='icon-25' src='{{uploadpath}}resource/{{res.zhondian}}'></image>
+        </view>
+        <view class="flex-1 margin-left-20">终点联系人</view>
+        <view class="margin-right-20">{{endinfo.name}}</view>
+        <view class="margin-right-20">{{endinfo.member_phone}}</view>
+      </view>
+    </view> -->
+
+    <view class="asd flex-1" style='width:95%'>
+      <view class="flex-row margin-top-20 " style=' margin-bottom:30rpx'>
+        <view class="margin-left-20">
+          <image class='icon-20' src='{{uploadpath}}resource/{{res.remarks_icon}}'></image>
+        </view>
+        <view class="flex-1 margin-left-20">备注</view>
+        <!-- <view class="   margin-right-10   " style='width:30% '>{{remark}}</view> -->
+        <view class="margin-right-10" wx:if='{{remark!="undefined"}}'>{{remark}}</view>
+        <view class="margin-right-10" wx:if='{{remark=="undefined"}}'></view>
+      </view>
+      <view>
+        <view class="">
+          <view class="" style='margin:30rpx'>报名资料</view>
+
+          <picker wx:if="{{vehiclelist.length>0}}" range='{{vehiclelist}}' bindchange='bindenroll' range-key='carnumber'>
+            <view class='flex-row flex-center flex-1 margin-left-20 margin-top-20   bor_btm'>
+              <image class='icon-25' src='{{uploadpath}}resource/{{res.huanche}}'></image>
+              <view class='txt-black  flex-1  margin-left-20'>选择车辆</view>
+              <input class=' txt-black text-right' disabled='true' bindinput='enrollcontact' name='elcontact' placeholder='请选择车辆' value='{{elcontact}}'></input>
+              <image class='icon-20' src='{{uploadpath}}resource/{{res.right_icon}}'></image>
+            </view>
+          </picker>
+
+          <navigator url="/pages/Addvehicle/Addvehicle" wx:if="{{vehiclelist.length==0}}" class="flex-row  margin-top-10 flex-center">
+            <view class=''>
+              <image class='margin-left-20 icon-25' src='{{uploadpath}}resource/{{res.huanche}}'></image>
+            </view>
+            <view class="flex-1  margin-left-20   ">选择车辆</view>
+
+            <view class="flex-row  flex-center  ">
+              <view>请添加车辆</view>
+
+            </view>
+            <image class='icon-20' src='{{uploadpath}}resource/{{res.right_icon}}'></image>
+          </navigator>
+
+
+          <view class="flex-row  flex-center margin-top-20">
+            <image class='margin-left-20  icon-25' src='{{uploadpath}}resource/{{res.yunshudunshu}}'></image>
+            <view class="flex-1 txt-black margin-left-20">货运吨数</view>
+            <input class='' placeholder='请输入货运吨数' type='number' bindinput='tonnage' name="tonnage" style='text-align:right;margin-right:20rpx'></input>
+          </view>
+
+
+          <view class="flex-row  flex-center margin-top-20">
+            <image class='margin-left-20  icon-25' src='{{uploadpath}}resource/{{res.hezaidunshu}}'></image>
+            <view class="flex-1 txt-black margin-left-20">核载吨数</view>
+            <input class='' disabled='false' type='number' value='{{enroll_carload}}' name="atonnage" style='text-align:right;margin-right:20rpx'></input>
+          </view>
+
+          
+
+          <view class="flex-row  flex-center margin-top-20">
+            <image class='margin-left-20  icon-25' src='{{uploadpath}}resource/{{res.sijidianhua}}'></image>
+            <view class="flex-1 txt-black margin-left-20">司机电话</view>
+            <input class='' placeholder='请输入联系电话' bindgetphonenumber='getPhoneNo' open-type='getPhoneNumber' value='{{memberinfo.mobile}}' type='number' bindinput='binddriver' name="driverphone" style='text-align:right;margin-right:20rpx'></input>
+            <!-- <button class='h6 margin-top-10' style='width:170rpx;' size='mini' bindgetphonenumber='getPhoneNo' open-type='getPhoneNumber'>获取手机</button> -->
+          </view>
+
+
+          <button wx:if='{{totaldun < weight&&applycount < carcount}}' form-type='submit' style='margin-top:118rpx' class="h4 txt-white " type='bak_ble'>报名</button>
+          <button wx:if='{{totaldun>=weight||applycount >= carcount}}' bindtap='btnshowtost' style='margin-top:118rpx' class="h4 txt-white " type='bak_ble'>无法报名
+          </button>
+          <!-- <button wx:if='{{applycount >= carcount}}' style='margin-top:118rpx' class="h4 txt-white " type='bak_ble'>报名人数已满</button> -->
+
+        </view>
+
+      </view>
+
+    </view>
+
+
+  </view>
+</form>

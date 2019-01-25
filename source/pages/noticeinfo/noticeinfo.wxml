@@ -1,0 +1,7 @@
+<!--pages/noticeinfo/noticeinfo.wxml-->
+<view class='flex-row flex-column padding-40'>
+<view class='txt-black txt-bold'>{{messageinfo.mess_title}}</view>
+<text class='margin-top-20 h5' >{{messageinfo.mess_content}}</text>
+
+</view>
+<view class='text-right padding-40 h5 margin-right-20 txt-gray'>{{messageinfo.created_date}}</view>

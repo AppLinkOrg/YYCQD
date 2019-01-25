@@ -1,0 +1,4 @@
+<!--pages/orderpaylist/orderpaylist.wxml-->
+<text>pages/orderpaylist/orderpaylist.wxml</text>
+调用一下接口完成企业报名的支付记录
+http://cmsdev.app-link.org/alucard263096/dds/api/order/orderpaylist

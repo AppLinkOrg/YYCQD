@@ -1,0 +1,15 @@
+/* pages/addmembers/addmembers.wxss */
+.btn{
+  color: white;
+  background: #4C556E;
+}
+.hover_btn{
+  color: white;
+  background: rgb(128, 140, 173);
+}
+.under{
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+}

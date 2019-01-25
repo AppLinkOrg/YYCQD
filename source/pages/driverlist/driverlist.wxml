@@ -1,0 +1,152 @@
+<!--pages/driverlist/driverlist.wxml-->
+<view class='flex-row flex-center top  bg-bck_ble'>
+  <view class='flex-1 text-center padding-20 txt-gray_white {{ctt==1?"to-white":""}}' hidden='{{type=="Y"}}' bindtap='bindcontact'>已报名</view>
+  <view class='flex-1 text-center padding-20 txt-gray_white {{waitcpd==2?"to-white":""}}' bindtap='bindwaitcompleted'>待完成</view>
+  <view class='flex-1 text-center padding-20 txt-gray_white {{cpd==3?"to-white":""}}' bindtap='bindcompleted'>已完成</view>
+</view>
+
+
+<view hidden='{{ctt!="1"}}'>
+  <view wx:if='{{applylist.length==0}}' class='flex-row flex-column'>
+    <image class='null_icon padding-40 ' src='{{uploadpath}}resource/{{res.driverlist_icon}}'></image>
+    <view class=''>暂无报名人员</view>
+  </view>
+
+  <view class=' mid margin-40' wx:for='{{applylist}}' wx:key='k'>
+    <view class='padding-40' style='border-bottom:1rpx solid #CFCECF'>
+      <view class='flex-row flex-center'>
+        <view class='flex-row flex-center flex-1'>
+          <image class='icon-20' src='{{uploadpath}}resource/{{res.enterprise}}'></image>
+          <view class='flex-1 margin-left-20 h4 txt-black'>{{item.carriage_driver_name}}</view>
+        </view>
+
+        <navigator class='flex-row flex-center margin-top-20' id='{{item.driver_phone}}' bindtap='phoneCall'>
+          <image class='icon-20' src='{{uploadpath}}resource/{{res.phone_icon}}'></image>
+          <view class='flex-1 margin-left-20 txt-black'>联系司机</view>
+        </navigator>
+      </view>
+      <view class='flex-row flex-center'>
+        <view class='flex-row flex-center padding-20 flex-1'>
+          <view class='font-left'>{{item.tonnage}}</view>
+          <view class='txt-bold h4'>吨</view>
+        </view>
+
+
+        <view class='flex-row flex-column'>
+          <view class='flex-row flex-center    bg-orange' style='border-radius:7rpx; height:80rpx;'>
+            <view class='padding-10 margin-left-10 margin-right-10 txt-bold txt-black' style='border:2rpx solid black;border-radius:7rpx;'>{{item.vehicle}}</view>
+          </view>
+          
+          <view class='txt-black txt-bold margin-top-10'>核载吨数:{{item.car_load}}吨</view>
+        </view>
+
+      </view>
+      <view>运输单编号：{{item.order_orderno}}</view>
+      <view>报名单编号：{{item.applyno}}</view>
+    </view>
+
+    <view class='flex-row flex-center margin-20'>
+      <navigator class='flex-1 padding-10 bg-red text-center txt-white h5 margin-right-10' bindtap='Refuse' id='{{item.id}}' style='border-radius:10rpx;'>拒绝使用此车</navigator>
+      <navigator class='flex-1 padding-10 bg-green text-center txt-white h5 margin-left-10' id='{{item.id}}' bindtap='Determineduse' style='border-radius:10rpx;'>确定使用此车</navigator>
+    </view>
+
+  </view>
+</view>
+
+
+<view hidden='{{waitcpd!="2"}}'>
+  <view wx:if='{{tobecpdlist.length==0}}' class='flex-row flex-column'>
+    <image class='null_icon padding-40 ' src='{{uploadpath}}resource/{{res.driverlist_icon}}'></image>
+    <view class=''>暂无待完成运输人员</view>
+  </view>
+  <view class=' mid margin-40' wx:for='{{tobecpdlist}}' wx:for-index="idx" wx:key='k' >
+
+    <view class='padding-40' style='border-bottom:1rpx solid #CFCECF'>
+      <view class='flex-row flex-center'>
+        <view class='flex-row flex-center flex-1'>
+          <image class='icon-20' src='{{uploadpath}}resource/{{res.enterprise}}'></image>
+          <view class='flex-1 margin-left-20 h4 txt-black'>{{item.carriage_driver_name}}</view>
+        </view>
+
+        <navigator class='flex-row flex-center margin-top-20' id='{{item.driver_phone}}' bindtap='phoneCall'>
+          <image class='icon-20' src='{{uploadpath}}resource/{{res.phone_icon}}'></image>
+          <view class='flex-1 margin-left-20 txt-black'>联系司机</view>
+        </navigator>
+      </view>
+      <view class='flex-row flex-center'>
+        <view class='flex-row flex-center padding-20 flex-1'>
+          <view class='font-left'>{{item.tonnage}}</view>
+          <view class='txt-bold h4'>吨</view>
+        </view>
+
+
+
+        <view class='flex-row flex-column'>
+          <view class='flex-row flex-center    bg-orange' style='border-radius:7rpx; height:80rpx;'>
+            <view class='padding-10 margin-left-10 margin-right-10 txt-bold txt-black' style='border:2rpx solid black;border-radius:7rpx;'>{{item.vehicle}}</view>
+          </view>
+
+          <view class='txt-black txt-bold margin-top-10'>核载吨数:{{item.car_load}}吨</view>
+        </view>
+
+
+
+
+      </view>
+      <view>运输单编号：{{item.order_orderno}}</view>
+      <view>报名单编号：{{item.applyno}}</view>
+    </view>
+
+    <view class='flex-row flex-center margin-20'>
+      <navigator id='{{item.id}}' bindtap='weightsheet' data-index='{{item.photo}}' data-p1='{{item.p1}}'  class='flex-1 padding-10 bg-red text-center txt-white h5 margin-right-10' style='border-radius:10rpx;'>查看过磅单</navigator>
+      
+      <navigator class='flex-1 padding-10 bg-green text-center txt-white h5 margin-left-10' data-index='{{item.photo}}' data-p1='{{item.p1}}'  data-idx='{{idx}}'    style='border-radius:10rpx;' bindtap='addcompleted'>确认已到达</navigator>
+      
+    </view>
+
+  </view>
+</view>
+
+
+<view hidden='{{cpd!="3"}}'>
+  <view wx:if='{{completedlist.length==0}}' class='flex-row flex-column'>
+    <image class='null_icon padding-40 ' src='{{uploadpath}}resource/{{res.driverlist_icon}}'></image>
+    <view class=''>暂无人员完成运输</view>
+  </view>
+  <navigator url='/pages/driverhistory/driverhistory?id={{item.id}}' class=' mid margin-40' wx:for='{{completedlist}}' wx:key='k'>
+    <view class='padding-40' style='border-bottom:1rpx solid #CFCECF'>
+      <view class='flex-row flex-center'>
+        <view class='flex-row flex-center flex-1'>
+          <image class='icon-20' src='{{uploadpath}}resource/{{res.enterprise}}'></image>
+          <view class='flex-1 margin-left-20 h4 txt-black'>{{item.carriage_driver_name}}</view>
+        </view>
+
+        <navigator class='flex-row flex-center margin-top-20' id='{{item.driver_phone}}' bindtap='phoneCall'>
+          <image class='icon-20' src='{{uploadpath}}resource/{{res.phone_icon}}'></image>
+          <view class='flex-1 margin-left-20 txt-black'>联系司机</view>
+        </navigator>
+      </view>
+      <view class='flex-row flex-center'>
+        <view class='flex-row flex-center padding-20 flex-1'>
+          <view class='font-left'>{{item.tonnage}}</view>
+          <view class='txt-bold h4'>吨</view>
+        </view>
+
+        <view class='flex-row flex-column'>
+          <view class='flex-row flex-center    bg-orange' style='border-radius:7rpx; height:80rpx;'>
+            <view class='padding-10 margin-left-10 margin-right-10 txt-bold txt-black' style='border:2rpx solid black;border-radius:7rpx;'>{{item.vehicle}}</view>
+          </view>
+
+          <view class='txt-black txt-bold margin-top-10'>核载吨数:{{item.car_load}}吨</view>
+        </view>
+
+
+      </view>
+      <view>运输单编号：{{item.order_orderno}}</view>
+      <view>报名单编号：{{item.applyno}}</view>
+    </view>
+
+
+  </navigator>
+
+</view>
