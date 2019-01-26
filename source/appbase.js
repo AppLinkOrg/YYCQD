@@ -13,7 +13,7 @@ export class AppBase {
   static QQMAPKEY ="IDVBZ-TSAKD-TXG43-H442I-74KVK-6LFF5";
   static UserInfo = {};
   static InstInfo = {};
-  unicode = "dds";
+  unicode = "yycqd";
   needauth = true;
   pagetitle = null;
   app = null;
@@ -103,8 +103,6 @@ export class AppBase {
       download: base.download,
       checkPermission: base.checkPermission
 
-
-      
     }
   }
   log() {

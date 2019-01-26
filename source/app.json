@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/youke/youke",
+    "pages/home/home",
     "pages/aboutus/aboutus",
     "pages/agreement/agreement",
     "pages/applypaylist/applypaylist",
@@ -17,7 +18,6 @@
     "pages/vehicle/vehicle",
     "pages/driver/driver",
     "pages/weighingsheet/weighingsheet",
-    "pages/home/home",
     "pages/Addvehicle/Addvehicle",
     "pages/mine/mine",
     "pages/auth/auth",

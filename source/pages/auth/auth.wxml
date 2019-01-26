@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view style='margin-top:160rpx;' class='text-center' >
   <image src='{{uploadpath}}inst/{{instinfo.logo}}' style='' class='icon-75' mode='widthFix'></image>
-  <view class='txt-black'>大得森</view>
+  <view class='txt-black'>云易创</view>
 </view>
 
 <view class='padding-40' >
